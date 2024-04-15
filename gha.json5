@@ -1,0 +1,13 @@
+{
+  // Configuration for repositories defining custom GitHub actions
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  packageRules: [
+    {
+      description: "Update to action dependencies use fix commits to trigger a release",
+      matchFileNames: ["action.yml"],
+      // semanticCommitType: "fix",
+      // extends: [":semanticCommitType(fix)"]
+      extends: [":semanticCommitTypeAll(fix)"]
+    },
+  ],
+}
