@@ -6,5 +6,5 @@
     ":disableRateLimiting",
   ],
   // https://docs.renovatebot.com/configuration-options/#prbodytemplate
-  prBodyTemplate: "{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}",
+  prBodyTemplate: "{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}",
 }
