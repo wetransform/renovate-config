@@ -1,0 +1,13 @@
+{
+  // Configuration for repositories defining custom GitHub actions
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  packageRules: [
+    {
+      description: "Reusable workflows use fix commits to trigger a release",
+      matchFileNames: [".github/workflows/*.yml"],
+      // semanticCommitType: "fix",
+      // extends: [":semanticCommitType(fix)"]
+      extends: [":semanticCommitTypeAll(fix)"]
+    },
+  ],
+}

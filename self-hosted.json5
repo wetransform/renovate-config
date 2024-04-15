@@ -1,0 +1,10 @@
+{
+  // Default configuration for self-hosted Renovate
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "github>wetransform/renovate-config/default.json5",
+    ":disableRateLimiting",
+  ],
+  // https://docs.renovatebot.com/configuration-options/#prbodytemplate
+  prBodyTemplate: "{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}",
+}
