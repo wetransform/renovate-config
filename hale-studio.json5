@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    // hale-studio uses Groovy 2
+    {
+      "matchPackagePrefixes": ["org.codehaus.groovy:"],
+      "allowedVersions": "< 3",
+    },
+  ]
+}

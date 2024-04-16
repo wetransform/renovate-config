@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    // Currently using Kotlin 1.7
+    // update to 1.8 caused problems in hc-api-tools
+    {
+      "matchPackagePrefixes": ["org.jetbrains.kotlin"],
+      "allowedVersions": "< 1.7",
+    },
+  ]
+}
