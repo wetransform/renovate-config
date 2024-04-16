@@ -5,7 +5,13 @@
     // update to 1.8 caused problems in hc-api-tools
     {
       "matchPackagePrefixes": ["org.jetbrains.kotlin"],
-      "allowedVersions": "< 1.7",
+      "allowedVersions": "< 1.8",
+    },
+    // Jackson compatiblity to Kotlin (see https://github.com/FasterXML/jackson-module-kotlin?tab=readme-ov-file#compatibility)
+    // 2.17.x = Kotlin 1.7 - 2.0
+    {
+      "matchPackagePrefixes": ["com.fasterxml.jackson"],
+      "allowedVersions": "<= 2.17",
     },
   ]
 }
