@@ -22,6 +22,11 @@
       matchUpdateTypes: ["minor", "patch"],
       schedule: ["* * * * 0"],
     },
+    // Disable for eclipseconfig Gradle plugin (because latest version is not published to Plugin Portal)
+    {
+      matchPackageNames: ["org.standardout.eclipseconfig"],
+      enabled: false,
+    },
   ],
   customManagers: [
     {
