@@ -27,6 +27,18 @@
       matchPackageNames: ["org.standardout.eclipseconfig"],
       enabled: false,
     },
+    // group logback related dependencies
+    {
+      "groupName": "logback dependencies",
+      "groupSlug": "logback-deps",
+      "matchPackagePrefixes": ["ch.qos.logback:"]
+    },
+    // group wetransform logging utils
+    {
+      "groupName": "wetransform logging dependencies",
+      "groupSlug": "wetf-logging-deps",
+      "matchPackagePrefixes": ["to.wetransform.logging:"]
+    },
   ],
   customManagers: [
     {
