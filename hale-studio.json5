@@ -6,7 +6,9 @@
       "matchPackagePrefixes": ["org.codehaus.groovy:"],
       "allowedVersions": "< 3",
     },
-    // hale-studio currently still used SLF4J 1 and Logback 1.12
+    // hale-studio currently still uses SLF4J 1 and Logback 1.12
+    // Note: but we allow downstream dependencies to upgrade (important is that slf4j is updated to version 2 and logback to version 1.5)
+    /*
     {
       "matchPackagePrefixes": ["org.slf4j:"],
       "allowedVersions": "< 2",
@@ -15,6 +17,7 @@
       "matchPackagePrefixes": ["ch.qos.logback:"],
       "allowedVersions": "< 1.3",
     },
+    */
     // group hale studio related dependencies
     {
       "groupName": "hale dependencies",
