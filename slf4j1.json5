@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    // use SLF4J 1 and Logback 1.12
+    {
+      "matchPackagePrefixes": ["org.slf4j:"],
+      "allowedVersions": "< 2",
+    },
+    {
+      "matchPackagePrefixes": ["ch.qos.logback:"],
+      "allowedVersions": "< 1.3",
+    },
+  ]
+}
