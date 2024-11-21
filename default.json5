@@ -39,6 +39,12 @@
       "groupSlug": "wetf-logging-deps",
       "matchPackagePrefixes": ["to.wetransform.logging:"]
     },
+    {
+      description: "Update aws sdk minor/patch updates on Sundays",
+      matchPackagePrefixes: ["software.amazon.awssdk:"],
+      matchUpdateTypes: ["minor", "patch"],
+      schedule: ["* * * * 0"],
+    },
   ],
   customManagers: [
     {
