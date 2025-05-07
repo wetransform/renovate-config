@@ -19,5 +19,11 @@
       matchPackageNames: ["io.vertx:vertx-mongo-client"],
       allowedVersions: "<= 4.3.8",
     },
+    // Ignore Docker images in the wetransform organization with versions >= 2000 (because these are legacy hale-connect release tags)
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["wetransform/*"],
+      "allowedVersions": "< 2000",
+    }
   ]
 }
