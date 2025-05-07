@@ -4,16 +4,16 @@
     // Currently using Kotlin 1.7
     // update to 1.8 caused problems in hc-api-tools
     {
-      "matchPackagePrefixes": ["org.jetbrains.kotlin"],
+      "matchPackageNames": ["org.jetbrains.kotlin*"],
       "allowedVersions": "< 1.8",
     },
-    // Jackson compatiblity to Kotlin (see https://github.com/FasterXML/jackson-module-kotlin?tab=readme-ov-file#compatibility)
+    // Jackson compatibility to Kotlin (see https://github.com/FasterXML/jackson-module-kotlin?tab=readme-ov-file#compatibility)
     // 2.17.x = Kotlin 1.7 - 2.0
     {
-      "matchPackagePrefixes": ["com.fasterxml.jackson"],
+      "matchPackageNames": ["com.fasterxml.jackson*"],
       "allowedVersions": "<= 2.17",
     },
-    // Vertx Mongo CLient needs to be on older version to support old MongoDB databases
+    // Vertx Mongo Client needs to be on older version to support old MongoDB databases
     // update requires to update MongoDB first
     {
       matchPackageNames: ["io.vertx:vertx-mongo-client"],
