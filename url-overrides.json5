@@ -9,6 +9,11 @@
       "sourceUrl": "https://github.com/apache/maven-resolver"
     },
     {
+      "matchDepNames": ["software.amazon.awssdk:*"],
+      "matchDatasources": ["maven"],
+      "sourceUrl": "https://github.com/aws/aws-sdk-java-v2"
+    },
+    {
       "matchDepNames": ["ghcr.io/osgeo/gdal"],
       "matchDatasources": ["docker"],
       "sourceUrl": "https://github.com/OSGeo/GDAL"
