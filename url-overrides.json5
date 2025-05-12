@@ -1,0 +1,17 @@
+{
+  // Fixes for sourceUrl / changelogUrl for certain packages (sourceUrl is usually used to dervice changelogUrl, e.g. from GitHub)
+  // see https://github.com/renovatebot/renovate/discussions/14745
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "matchDepNames": ["org.apache.maven.resolver:maven-resolver*"],
+      "matchDatasources": ["maven"],
+      "sourceUrl": "https://github.com/apache/maven-resolver"
+    },
+    {
+      "matchDepNames": ["ghcr.io/osgeo/gdal"],
+      "matchDatasources": ["docker"],
+      "sourceUrl": "https://github.com/OSGeo/GDAL"
+    },
+  ],
+}
