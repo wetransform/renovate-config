@@ -7,7 +7,9 @@
     "security:openssf-scorecard",
     ":enableVulnerabilityAlertsWithLabel(security)",
     // use chore for test-only Gradle dependencies (Gradle manager does not make a distinction based on configurations)
-    ":pathSemanticCommitType(gradle/test-libs.versions.toml,chore)"
+    ":pathSemanticCommitType(gradle/test-libs.versions.toml,chore)",
+    // fix URLs for some packages
+    "github>wetransform/renovate-config:url-overrides.json5",
   ],
   labels: [
     "renovate",
