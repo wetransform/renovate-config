@@ -43,6 +43,13 @@
       "groupSlug": "wetf-logging-deps",
       "matchPackagePrefixes": ["to.wetransform.logging:"]
     },
+    // group wetransform convention plugins
+    {
+      "groupName": "wetransform Gradle conventions",
+      "groupSlug": "wetf-gradle-conventions",
+      "matchDatasources": ["maven"],
+      "matchDepNames": ["/to\.wetransform\.(settings|(conventions.*))/"]
+    },
     {
       description: "Update aws sdk minor/patch updates on Sundays",
       matchPackagePrefixes: ["software.amazon.awssdk:"],
