@@ -14,7 +14,7 @@ jobs:
       - name: Find renovate templates
         id: set
         run: |
-          files=$(find ./ -type f -name '*.json*' -exec basename {} \; | jq -R -s -c 'split("\n")[:-1]')
+          files=$(find ./ -type f -name '*.json*' ! -name 'url-overrides.json5' -exec basename {} \; | jq -R -s -c 'split("\n")[:-1]')
           echo "Identified template files:"
           echo $files
           echo "matrix=$files" >>"$GITHUB_OUTPUT"
