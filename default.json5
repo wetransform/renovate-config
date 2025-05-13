@@ -93,6 +93,14 @@ semantic_version\\s*:\\s*(\"|')?(?<currentValue>.+)(\"|')?\
 semver-coerced\
 {{/if}}"
     },
+    {
+      "fileMatch": ["build\\.gradle$"],
+      "matchStrings": [
+        "baseImage\\s*=\\s*'(?<depName>[^:]+):(?<currentValue>[^']+)'",
+        "baseImage\\s*=\\s*\"(?<depName>[^:]+):(?<currentValue>[^']+)\""
+      ],
+      "datasourceTemplate": "docker"
+    }
   ],
   separateMinorPatch: false,
 }
