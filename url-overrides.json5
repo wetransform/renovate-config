@@ -18,5 +18,10 @@
       "matchDatasources": ["docker"],
       "sourceUrl": "https://github.com/OSGeo/GDAL"
     },
+    {
+      "matchDepNames": ["to.wetransform.conventions*", "to.wetransform.settings.*"],
+      "matchDatasources": ["maven"],
+      "sourceUrl": "https://github.com/wetransform/gradle-conventions"
+    },
   ],
 }
