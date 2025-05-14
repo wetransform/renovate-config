@@ -1,0 +1,10 @@
+{
+  // Configuration for repos using Java 17
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  packageRules: [
+    {
+      matchPackageNames: ["eclipse-temurin"],
+      allowedVersions: "<=17"
+    },
+  ],
+}
