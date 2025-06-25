@@ -56,6 +56,11 @@
       matchUpdateTypes: ["minor", "patch"],
       schedule: ["* * * * 0"],
     },
+    { // wetransform/pycsw Docker image custom versioning with build date
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["wetransform/pycsw"],
+      "versioning": "regex:^(?<major>\\d+)(\\.(?<minor>\\d+))?(\\.(?<patch>\\d+))?(-(?<build>.*))?$"
+    },
   ],
   customManagers: [
     {
