@@ -3,7 +3,22 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   packageRules: [
     {
-      matchPackageNames: ["eclipse-temurin", "java"],
+      "matchDatasources": [
+        "docker",
+        "java-version"
+      ],
+      "matchPackageNames": [
+        "eclipse-temurin",
+        "amazoncorretto",
+        "adoptopenjdk",
+        "openjdk",
+        "java",
+        "java-jre",
+        "sapmachine",
+        "/^azul/zulu-openjdk/",
+        "/^bellsoft/liberica-openj(dk|re)-/",
+        "/^cimg/openjdk/"
+      ],
       allowedVersions: "<=17"
     },
   ],
