@@ -54,7 +54,22 @@
     {
       "groupName": "Java",
       "groupSlug": "java",
-      "matchPackageNames": ["java", "eclipse-temurin"],
+      "matchDatasources": [
+        "docker",
+        "java-version"
+      ],
+      "matchPackageNames": [
+        "eclipse-temurin",
+        "amazoncorretto",
+        "adoptopenjdk",
+        "openjdk",
+        "java",
+        "java-jre",
+        "sapmachine",
+        "/^azul/zulu-openjdk/",
+        "/^bellsoft/liberica-openj(dk|re)-/",
+        "/^cimg/openjdk/"
+      ],
     },
     {
       description: "Update aws sdk minor/patch updates on Sundays",
