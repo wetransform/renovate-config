@@ -71,6 +71,23 @@
         "/^cimg/openjdk/"
       ],
     },
+    { // it seems matching depNames is required in addition to package names (see also https://docs.renovatebot.com/presets-workarounds/#workaroundsjavaltsversions)
+      "groupName": "Java",
+      "groupSlug": "java",
+      "matchDatasources": [
+        "docker",
+        "java-version"
+      ],
+      "matchDepNames": [
+        "eclipse-temurin",
+        "amazoncorretto",
+        "adoptopenjdk",
+        "openjdk",
+        "java",
+        "java-jre",
+        "sapmachine"
+      ],
+    },
     {
       description: "Update aws sdk minor/patch updates on Sundays",
       matchPackagePrefixes: ["software.amazon.awssdk:"],
