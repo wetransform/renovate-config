@@ -21,5 +21,21 @@
       ],
       allowedVersions: "<=17"
     },
+    { // it seems matching depNames is required in addition to package names (see also https://docs.renovatebot.com/presets-workarounds/#workaroundsjavaltsversions)
+      "matchDatasources": [
+        "docker",
+        "java-version"
+      ],
+      "matchDepNames": [
+        "eclipse-temurin",
+        "amazoncorretto",
+        "adoptopenjdk",
+        "openjdk",
+        "java",
+        "java-jre",
+        "sapmachine"
+      ],
+      allowedVersions: "<=17"
+    },
   ],
 }
