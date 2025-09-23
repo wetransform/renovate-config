@@ -50,6 +50,12 @@
       "matchDatasources": ["maven"],
       "matchDepNames": ["/^to\.wetransform\.(settings|conventions).*$/"]
     },
+    // group Java dependencies
+    {
+      "groupName": "Java",
+      "groupSlug": "java",
+      "matchPackageNames": ["java", "eclipse-temurin"],
+    },
     {
       description: "Update aws sdk minor/patch updates on Sundays",
       matchPackagePrefixes: ["software.amazon.awssdk:"],
