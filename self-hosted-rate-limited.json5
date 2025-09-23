@@ -6,4 +6,5 @@
   ],
   // https://docs.renovatebot.com/configuration-options/#prbodytemplate
   prBodyTemplate: "{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}",
+  rebaseWhen: "conflicted", // avoid too many PR builds for renovate changes; Note: may cause problems with automerge
 }
