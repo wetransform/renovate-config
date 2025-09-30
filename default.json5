@@ -71,6 +71,22 @@
         "/^cimg/openjdk/"
       ],
     },
+    // work around Maven repos not being detected properly when using Gradle conventions plugin
+    {
+      "matchDatasources": ["maven"],
+      "matchPackageNames": ["/^to.wetransform/"],
+      "registryUrls": ["https://artifactory.wetransform.to/artifactory/local", "https://artifactory.wetransform.to/artifactory/private", "https://plugins.gradle.org/m2/"]
+    },
+    {
+      "matchDatasources": ["maven"],
+      "matchPackageNames": ["/^eu.esdihumboldt/", "/^com.github.wetransform-os/", "/^com.haleconnect/"],
+      "registryUrls": ["https://artifactory.wetransform.to/artifactory/local"]
+    },
+    {
+      "matchDatasources": ["maven"],
+      "matchPackageNames": ["/^org.deegree/"],
+      "registryUrls": ["https://artifactory.wetransform.to/artifactory/private", "https://repo.deegree.org/content/groups/public/", "https://artifactory.wetransform.to/artifactory/deegree"]
+    },
     { // it seems matching depNames is required in addition to package names (see also https://docs.renovatebot.com/presets-workarounds/#workaroundsjavaltsversions)
       "groupName": "Java",
       "groupSlug": "java",
