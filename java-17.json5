@@ -17,7 +17,8 @@
         "sapmachine",
         "/^azul/zulu-openjdk/",
         "/^bellsoft/liberica-openj(dk|re)-/",
-        "/^cimg/openjdk/"
+        "/^cimg/openjdk/",
+        "mcr.microsoft.com/devcontainers/java"
       ],
       allowedVersions: "<=17"
     },
