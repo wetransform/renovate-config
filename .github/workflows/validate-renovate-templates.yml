@@ -10,7 +10,7 @@ jobs:
     outputs:
       matrix: ${{steps.set.outputs.matrix }}
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Find renovate templates
         id: set
         run: |
@@ -26,7 +26,7 @@ jobs:
       matrix:
         template: "${{ fromJson(needs.find-templates.outputs.matrix) }}"
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - uses: suzuki-shunsuke/github-action-renovate-config-validator@c22827f47f4f4a5364bdba19e1fe36907ef1318e # v1.1.1
         with:
           config_file_path: "${{ matrix.template }}"
