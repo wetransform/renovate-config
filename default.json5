@@ -161,7 +161,18 @@ semver-coerced\
         "baseImage\\s*=\\s*\"(?<depName>[^:]+):(?<currentValue>[^']+)\""
       ],
       "datasourceTemplate": "docker"
-    }
+    },
+    {
+      description: "Versions of hk-config in hk.pkl files",
+      customType: "regex",
+      managerFilePatterns: ["hk.pkl"],
+      matchStrings: [
+        '(amends|import) "https://raw.githubusercontent.com/wetransform/hk-config/refs/tags/v(?<currentValue>\\d+\\.\\d+\\.\\d+)/',
+      ],
+      depNameTemplate: "wetransform/hk-config",
+      datasourceTemplate: "github-tags",
+      extractVersionTemplate: "^v?(?<version>.*)$",
+    },
   ],
   separateMinorPatch: false,
 }
