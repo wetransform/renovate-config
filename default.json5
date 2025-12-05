@@ -167,7 +167,7 @@ semver-coerced\
       customType: "regex",
       managerFilePatterns: ["hk.pkl"],
       matchStrings: [
-        '(amends|import) "https://raw.githubusercontent.com/wetransform/hk-config/refs/tags/v(?<currentValue>\\d+\\.\\d+\\.\\d+)/',
+        '(amends|import)\\s+"https://raw.githubusercontent.com/wetransform/hk-config/refs/tags/v(?<currentValue>\\d+\\.\\d+\\.\\d+)/',
       ],
       depNameTemplate: "wetransform/hk-config",
       datasourceTemplate: "github-tags",
