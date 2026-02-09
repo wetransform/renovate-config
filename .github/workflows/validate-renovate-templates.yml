@@ -32,4 +32,4 @@ jobs:
           config_file_path: "${{ matrix.template }}"
           strict: false
           # renovate: datasource=npm depName=renovate
-          validator_version: 43.4.2
+          validator_version: 43.5.1
