@@ -1,17 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
-    // Currently using Kotlin 1.7
-    // update to 1.8 caused problems in hc-api-tools
+    // Need to update at least to 2.1, max 2.3, to be compatible with Jackson, Gradle and JUnit also require 2+ in current versions
     {
       "matchPackageNames": ["org.jetbrains.kotlin*"],
-      "allowedVersions": "< 1.8",
+      "allowedVersions": "<= 2.3",
     },
     // Jackson compatibility to Kotlin (see https://github.com/FasterXML/jackson-module-kotlin?tab=readme-ov-file#compatibility)
-    // 2.17.x = Kotlin 1.7 - 2.0
+    // 2.21.x = Kotlin 2.1 - 2.3
     {
       "matchPackageNames": ["com.fasterxml.jackson*"],
-      "allowedVersions": "<= 2.17",
+      "allowedVersions": ">= 2.21",
     },
     // Vertx Mongo Client needs to be on older version to support old MongoDB databases
     // update requires to update MongoDB first
