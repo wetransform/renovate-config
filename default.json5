@@ -37,6 +37,12 @@
       matchPackageNames: ["org.standardout.eclipseconfig"],
       enabled: false,
     },
+    // group hk related dependencies
+    {
+      groupName: "hk",
+      groupSlug: "jdx-hk",
+      matchDepNames: ["hk", "jdx/hk", "pkl", "apple/pkl", "wetransform/hk-config"],
+    },
     // group logback related dependencies
     {
       "groupName": "logback dependencies",
