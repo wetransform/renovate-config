@@ -26,6 +26,12 @@
       matchUpdateTypes: ["minor", "patch"],
       schedule: ["* * * * 0"],
     },
+    {
+      description: "Update renovate minor/patch updates on Sundays",
+      matchPackageNames: ["renovate"],
+      matchUpdateTypes: ["minor", "patch"],
+      schedule: ["* * * * 0"],
+    },
     // Disable for eclipseconfig Gradle plugin (because latest version is not published to Plugin Portal)
     {
       matchPackageNames: ["org.standardout.eclipseconfig"],
