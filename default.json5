@@ -180,6 +180,7 @@ semver-coerced\
       managerFilePatterns: ["hk.pkl"],
       matchStrings: [
         '(amends|import)\\s+"https://raw.githubusercontent.com/wetransform/hk-config/refs/tags/v(?<currentValue>\\d+\\.\\d+\\.\\d+)/',
+        '(amends|import)\\s+"package://github.com/wetransform/hk-config/releases/download/v(?<currentValue>\\d+\\.\\d+\\.\\d+)/hk-config@(?<currentValue2>\\d+\\.\\d+\\.\\d+)#',
       ],
       depNameTemplate: "wetransform/hk-config",
       datasourceTemplate: "github-tags",
