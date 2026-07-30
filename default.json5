@@ -129,6 +129,15 @@
       // ignore old date based tags
       "allowedVersions": "< 20000000",
     },
+    {
+      // conventional-changelog-conventionalcommits v10 targets conventional-changelog-writer v9,
+      // but semantic-release 25.x (commit-analyzer 13 / release-notes-generator 14) render with
+      // writer v8, so v10 produces empty release notes (only the version header) in the
+      // mise-release workflow. Hold at v9 until the semantic-release ecosystem supports v10.
+      // See https://github.com/semantic-release/release-notes-generator/issues/992
+      matchPackageNames: ["conventional-changelog-conventionalcommits"],
+      allowedVersions: "<10",
+    },
   ],
   customManagers: [
     {
