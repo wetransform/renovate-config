@@ -1,6 +1,6 @@
 {
   // Configuration for repos capping Java at a given major version.
-  // Usage: github>wetransform/renovate-config:java(17)
+  // Usage: github>wetransform/renovate-config:java.json5(17)
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   packageRules: [
     {
