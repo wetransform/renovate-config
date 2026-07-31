@@ -1,42 +1,8 @@
 {
-  // Configuration for repos using Java 17
+  // Configuration for repos using Java 17.
+  // Thin wrapper over the parameterized java(<major>) preset.
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  packageRules: [
-    {
-      "matchDatasources": [
-        "docker",
-        "java-version"
-      ],
-      "matchPackageNames": [
-        "eclipse-temurin",
-        "amazoncorretto",
-        "adoptopenjdk",
-        "openjdk",
-        "java",
-        "java-jre",
-        "sapmachine",
-        "/^azul/zulu-openjdk/",
-        "/^bellsoft/liberica-openj(dk|re)-/",
-        "/^cimg/openjdk/",
-        "mcr.microsoft.com/devcontainers/java"
-      ],
-      allowedVersions: "<=17"
-    },
-    { // it seems matching depNames is required in addition to package names (see also https://docs.renovatebot.com/presets-workarounds/#workaroundsjavaltsversions)
-      "matchDatasources": [
-        "docker",
-        "java-version"
-      ],
-      "matchDepNames": [
-        "eclipse-temurin",
-        "amazoncorretto",
-        "adoptopenjdk",
-        "openjdk",
-        "java",
-        "java-jre",
-        "sapmachine"
-      ],
-      allowedVersions: "<=17"
-    },
+  extends: [
+    "github>wetransform/renovate-config:java(17)",
   ],
 }
