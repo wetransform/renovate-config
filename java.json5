@@ -1,0 +1,43 @@
+{
+  // Configuration for repos capping Java at a given major version.
+  // Usage: github>wetransform/renovate-config:java(17)
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  packageRules: [
+    {
+      "matchDatasources": [
+        "docker",
+        "java-version"
+      ],
+      "matchPackageNames": [
+        "eclipse-temurin",
+        "amazoncorretto",
+        "adoptopenjdk",
+        "openjdk",
+        "java",
+        "java-jre",
+        "sapmachine",
+        "/^azul/zulu-openjdk/",
+        "/^bellsoft/liberica-openj(dk|re)-/",
+        "/^cimg/openjdk/",
+        "mcr.microsoft.com/devcontainers/java"
+      ],
+      allowedVersions: "<={{arg0}}"
+    },
+    { // it seems matching depNames is required in addition to package names (see also https://docs.renovatebot.com/presets-workarounds/#workaroundsjavaltsversions)
+      "matchDatasources": [
+        "docker",
+        "java-version"
+      ],
+      "matchDepNames": [
+        "eclipse-temurin",
+        "amazoncorretto",
+        "adoptopenjdk",
+        "openjdk",
+        "java",
+        "java-jre",
+        "sapmachine"
+      ],
+      allowedVersions: "<={{arg0}}"
+    },
+  ],
+}
