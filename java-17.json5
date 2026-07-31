@@ -3,6 +3,6 @@
   // Thin wrapper over the parameterized java(<major>) preset.
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
-    "github>wetransform/renovate-config:java(17)",
+    "github>wetransform/renovate-config:java.json5(17)",
   ],
 }
