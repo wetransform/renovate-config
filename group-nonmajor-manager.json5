@@ -2,14 +2,45 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   packageRules: [
     {
+      // Group minor/patch updates per manager.
+      //
+      // This preset is opt-in and consumers extend it after self-hosted.json5, so this
+      // rule is resolved AFTER default.json5. To avoid overriding the groupName of the
+      // dedicated groups defined there (hk, logback, wetransform logging/conventions,
+      // Java), those packages are excluded here so this rule stays a fallback.
+      // Keep the exclusions in sync with the dedicated groups in default.json5.
       "groupName": "{{manager}} non-major dependencies",
       "groupSlug": "{{manager}}-minor-patch",
-      "matchPackagePatterns": [
-        "*"
-      ],
       "matchUpdateTypes": [
         "minor",
         "patch"
+      ],
+      "matchPackageNames": [
+        // Match all packages except the ones below (a list of only-negative matchers
+        // means "match everything that does not match these").
+        // hk (group hk related dependencies)
+        "!hk",
+        "!jdx/hk",
+        "!pkl",
+        "!apple/pkl",
+        "!wetransform/hk-config",
+        // logback (group logback related dependencies)
+        "!/^ch\\.qos\\.logback:/",
+        // wetransform logging utils
+        "!/^to\\.wetransform\\.logging:/",
+        // wetransform convention plugins
+        "!/^to\\.wetransform\\.(settings|conventions)/",
+        // Java
+        "!eclipse-temurin",
+        "!amazoncorretto",
+        "!adoptopenjdk",
+        "!openjdk",
+        "!java",
+        "!java-jre",
+        "!sapmachine",
+        "!/^azul\\/zulu-openjdk/",
+        "!/^bellsoft\\/liberica-openj(dk|re)-/",
+        "!/^cimg\\/openjdk/"
       ]
     }
   ]
