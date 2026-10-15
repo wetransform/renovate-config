@@ -21,6 +21,15 @@
   ],
   packageRules: [
     {
+      // Group minor/patch updates per manager (e.g. one PR for all npm or GitHub Actions updates).
+      // Major updates stay separate PRs. This rule is first so the dedicated groups below
+      // (hk, logback, Java, ...) override its groupName and don't need to be excluded here.
+      description: "Group non-major updates per manager",
+      matchUpdateTypes: ["minor", "patch"],
+      groupName: "{{manager}} non-major dependencies",
+      groupSlug: "{{manager}}-minor-patch",
+    },
+    {
       description: "Update renovatebot/github-action minor/patch updates on Sundays",
       matchPackageNames: ["renovatebot/github-action"],
       matchUpdateTypes: ["minor", "patch"],
@@ -197,4 +206,14 @@ semver-coerced\
     },
   ],
   separateMinorPatch: false,
+  // Weekly schedule for non-security updates to reduce PR noise.
+  // The managed Renovate workflow only runs on Sundays (00:00-04:00 UTC, see tf-renovate.yml),
+  // so the schedule must include Sunday (a Monday schedule would never match).
+  // https://docs.renovatebot.com/configuration-options/#schedule
+  schedule: ["* * * * 0"],
+  // Security updates are not delayed: no schedule (any time)
+  // https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
+  vulnerabilityAlerts: {
+    schedule: [],
+  },
 }
