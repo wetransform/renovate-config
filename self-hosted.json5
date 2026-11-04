@@ -3,6 +3,5 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
     "github>wetransform/renovate-config:self-hosted-rate-limited.json5",
-    ":disableRateLimiting",
   ],
 }

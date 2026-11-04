@@ -6,5 +6,8 @@
   ],
   // https://docs.renovatebot.com/configuration-options/#prbodytemplate
   prBodyTemplate: "{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}",
+  // https://docs.renovatebot.com/configuration-options/#prconcurrentlimit
+  prConcurrentLimit: 5,
+  prHourlyLimit: 2,
   rebaseWhen: "conflicted", // avoid too many PR builds for renovate changes; Note: may cause problems with automerge
 }
