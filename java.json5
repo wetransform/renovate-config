@@ -21,7 +21,12 @@
         "/^cimg/openjdk/",
         "mcr.microsoft.com/devcontainers/java"
       ],
-      allowedVersions: "<={{arg0}}"
+      // Cap at the given major version.
+      // Note: A plain "<={{arg0}}" does not work - the versionings used for Java are regex based,
+      // and Renovate evaluates ranges natively for regex versioning (since renovatebot/renovate#44834),
+      // so "<=17" means "<=17.0.0" and excludes e.g. 17.0.21 (with the former npm semver fallback it meant "<18").
+      // "<={{arg0}}.999" caps at the major version with both interpretations.
+      allowedVersions: "<={{arg0}}.999"
     },
     { // it seems matching depNames is required in addition to package names (see also https://docs.renovatebot.com/presets-workarounds/#workaroundsjavaltsversions)
       "matchDatasources": [
@@ -37,7 +42,8 @@
         "java-jre",
         "sapmachine"
       ],
-      allowedVersions: "<={{arg0}}"
+      // see comment on allowedVersions above
+      allowedVersions: "<={{arg0}}.999"
     },
   ],
 }
