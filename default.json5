@@ -10,6 +10,8 @@
     ":pathSemanticCommitType(gradle/test-libs.versions.toml,chore)",
     // fix URLs for some packages
     "github>wetransform/renovate-config:url-overrides.json5",
+    // update Temurin JDK versions in mise configuration files (workaround for unusable versions proposed by the mise manager)
+    "github>wetransform/renovate-config:mise-java-temurin.json5",
   ],
   labels: [
     "renovate",
