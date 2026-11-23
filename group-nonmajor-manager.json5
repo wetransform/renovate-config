@@ -40,7 +40,9 @@
         "!sapmachine",
         "!/^azul\\/zulu-openjdk/",
         "!/^bellsoft\\/liberica-openj(dk|re)-/",
-        "!/^cimg\\/openjdk/"
+        "!/^cimg\\/openjdk/",
+        // Temurin JDK in mise configuration files (see mise-java-temurin.json5)
+        "!/^adoptium\\/temurin\\d+-binaries$/"
       ]
     }
   ]

@@ -1,0 +1,60 @@
+{
+  // Workaround for updating Eclipse Temurin JDK versions in mise configuration files.
+  //
+  // Renovate's mise manager looks up Java versions with the java-version datasource, which uses the
+  // "semver" representation of the Adoptium API. For out-of-band (four-part) releases this does
+  // not match the version names mise uses, e.g. for the release 17.0.21.1+2:
+  //   - Renovate proposes temurin-17.0.21+100000002 (mise fails with "no metadata found for version")
+  //   - mise expects      temurin-17.0.21.1+2
+  //
+  // So here Java is handled by a custom manager instead, that uses the GitHub releases of
+  // adoptium/temurin<major>-binaries. Their tags (e.g. jdk-17.0.21.1+2) match the mise version names.
+  // Consequences:
+  //   - Only pins of a complete Temurin version of Java 11 or later are updated (e.g. "temurin-17.0.21+9"),
+  //     not short versions like "temurin-17" (and no other vendors).
+  //   - Updates stay within the major version, as there is a separate GitHub repository for each
+  //     major version. Version restrictions for the java-version datasource do not apply.
+  //
+  // If Renovate at some point proposes versions that work with mise, this preset can be dropped
+  // (remove it from the extends in default.json5 and the related exclusion in group-nonmajor-manager.json5)
+  // to switch back to the handling by the mise manager.
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  customManagers: [
+    {
+      description: "Eclipse Temurin JDK versions in mise configuration files",
+      customType: "regex",
+      managerFilePatterns: [
+        "/(^|/)\\.?mise(\\.[^/]+)?\\.toml$/",
+        "/(^|/)\\.?(config/)?mise/config(\\.[^/]+)?\\.toml$/",
+      ],
+      // only Java 11 or later - the release tags of older versions have a different format (e.g. jdk8u472-b08)
+      matchStrings: [
+        "(^|\\n)\\s*java\\s*=\\s*[\"']temurin-(?<currentValue>(?<javaMajor>1[1-9]|[2-9]\\d|\\d{3,})\\.\\d+\\.\\d+(\\.\\d+)?\\+\\d+)[\"']",
+      ],
+      depNameTemplate: "java",
+      packageNameTemplate: "adoptium/temurin{{{javaMajor}}}-binaries",
+      datasourceTemplate: "github-releases",
+      extractVersionTemplate: "^jdk-(?<version>.+)$",
+      // <major>.<minor>.<patch>[.<build>]+<revision> - other release tags (e.g. jdk-17.0.9+9.1 or early access builds) are ignored
+      versioningTemplate: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(\\.(?<build>\\d+))?\\+(?<revision>\\d+)$",
+    },
+  ],
+  packageRules: [
+    {
+      description: "Disable mise manager for Temurin JDK versions (handled by custom manager)",
+      matchManagers: ["mise"],
+      matchDepNames: ["java"],
+      // The mise manager removes the vendor prefix, so match the version format used by Temurin.
+      // Restricted to Java 11 or later like the custom manager, older versions stay with the mise manager.
+      matchCurrentValue: "/^(1[1-9]|[2-9]\\d|\\d{3,})\\.\\d+\\.\\d+(\\.\\d+)?\\+\\d+$/",
+      enabled: false,
+    },
+    {
+      description: "Add Temurin JDK to the Java group",
+      groupName: "Java",
+      groupSlug: "java",
+      matchDatasources: ["github-releases"],
+      matchPackageNames: ["/^adoptium\\/temurin\\d+-binaries$/"],
+    },
+  ],
+}
