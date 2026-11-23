@@ -9,6 +9,10 @@
   //
   // So here Java is handled by a custom manager instead, that uses the GitHub releases of
   // adoptium/temurin<major>-binaries. Their tags (e.g. jdk-17.0.21.1+2) match the mise version names.
+  //
+  // For Java 21 and later mise appends a suffix to the version names (e.g. temurin-25.0.5.1+2.0.LTS,
+  // but temurin-17.0.21.1+2). The suffix is optional in the patterns below and not part of the
+  // current value, so only the version in front of it is replaced and an existing suffix is kept.
   // Consequences:
   //   - Only pins of a complete Temurin version of Java 11 or later are updated (e.g. "temurin-17.0.21+9"),
   //     not short versions like "temurin-17" (and no other vendors).
@@ -29,7 +33,7 @@
       ],
       // only Java 11 or later - the release tags of older versions have a different format (e.g. jdk8u472-b08)
       matchStrings: [
-        "(^|\\n)\\s*java\\s*=\\s*[\"']temurin-(?<currentValue>(?<javaMajor>1[1-9]|[2-9]\\d|\\d{3,})\\.\\d+\\.\\d+(\\.\\d+)?\\+\\d+)[\"']",
+        "(^|\\n)\\s*java\\s*=\\s*[\"']temurin-(?<currentValue>(?<javaMajor>1[1-9]|[2-9]\\d|\\d{3,})\\.\\d+\\.\\d+(\\.\\d+)?\\+\\d+)(\\.\\d+\\.LTS)?[\"']",
       ],
       depNameTemplate: "java",
       packageNameTemplate: "adoptium/temurin{{{javaMajor}}}-binaries",
@@ -46,7 +50,8 @@
       matchDepNames: ["java"],
       // The mise manager removes the vendor prefix, so match the version format used by Temurin.
       // Restricted to Java 11 or later like the custom manager, older versions stay with the mise manager.
-      matchCurrentValue: "/^(1[1-9]|[2-9]\\d|\\d{3,})\\.\\d+\\.\\d+(\\.\\d+)?\\+\\d+$/",
+      // The optional suffix (e.g. ".0.LTS") is kept in the current value by the mise manager.
+      matchCurrentValue: "/^(1[1-9]|[2-9]\\d|\\d{3,})\\.\\d+\\.\\d+(\\.\\d+)?\\+\\d+(\\.\\d+\\.LTS)?$/",
       enabled: false,
     },
     {
